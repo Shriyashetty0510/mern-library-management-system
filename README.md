@@ -1,67 +1,164 @@
-# 📚 Biblios — Library Management System
+# 📚 Library Management System (MERN Stack)
 
-A full-stack Library Management System built with **React**, **Node.js**, **Express**, and **MongoDB**.
+A full-stack Library Management System built using **React.js**, **Node.js**, **Express.js**, and **MongoDB**. The application helps librarians manage books, members, and borrowing transactions efficiently while maintaining real-time inventory updates and transaction tracking.
 
-![Stack](https://img.shields.io/badge/React-18-blue?logo=react) ![Stack](https://img.shields.io/badge/Node.js-Express-green?logo=node.js) ![Stack](https://img.shields.io/badge/MongoDB-Mongoose-brightgreen?logo=mongodb)
-
----
-
-## Features
-
-- **Dashboard** — live stats, recent transactions, genre distribution chart
-- **Books** — add, edit, delete books, search by title/author/ISBN, filter by genre
-- **Members** — register members, activate/deactivate, full CRUD
-- **Transactions** — issue books, return books, auto fine calculation (₹5/day overdue)
-- Real-time search with debounce
-- Toast notifications on every action
-- Fully connected to MongoDB — all data persists
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-brightgreen?logo=mongodb)
+![License](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## Project Structure
+## 🚀 Features
 
+### 📚 Book Management
+
+* Add new books
+* Edit existing books
+* Delete books
+* Search books by title, author, or ISBN
+* Filter books by genre
+* Track total and available copies
+
+### 👥 Member Management
+
+* Register new members
+* Edit member details
+* Activate/Deactivate members
+* Delete members
+* View complete member records
+
+### 🔄 Transaction Management
+
+* Issue books to members
+* Return books
+* Automatic inventory updates
+* Due date tracking
+* Overdue loan monitoring
+* Fine calculation (₹5/day overdue)
+
+### 📊 Dashboard Analytics
+
+* Total books
+* Available books
+* Active members
+* Active loans
+* Returned books
+* Overdue books
+* Recent transaction history
+* Genre distribution insights
+
+### 💾 Database Features
+
+* MongoDB persistence
+* Real-time data synchronization
+* Structured collections for books, members, and transactions
+* End-to-end CRUD operations
+
+---
+
+## 🏗️ System Architecture
+
+```text
+React Frontend
+      │
+      ▼
+Express REST API
+      │
+      ▼
+Node.js Backend
+      │
+      ▼
+MongoDB Database
 ```
-library-ms/
+
+---
+
+## 📂 Project Structure
+
+```text
+library-management-system/
+│
 ├── backend/
-│   ├── config/       → MongoDB connection
-│   ├── models/       → Mongoose schemas (Book, Member, Transaction)
-│   ├── routes/       → Express API routes
-│   ├── seed/         → Demo data seeder
-│   ├── server.js     → Entry point
-│   └── .env          → Environment variables
-└── frontend/
-    ├── public/
-    └── src/
-        ├── components/   → Sidebar, Modal, Toast
-        ├── pages/        → Dashboard, Books, Members, Transactions
-        ├── utils/        → Axios API helper
-        ├── App.js
-        └── index.css
+│   ├── config/
+│   ├── models/
+│   ├── routes/
+│   ├── seed/
+│   ├── server.js
+│   └── .env
+│
+├── frontend/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── utils/
+│       ├── App.js
+│       └── index.css
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## How to Run Locally
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Books Management
+![Books](screenshots/books.png)
+
+### Members Management
+![Members](screenshots/members.png)
+
+### Transactions Management
+![Transactions](screenshots/transactions.png)
+
+### MongoDB Database
+![MongoDB](screenshots/mongo-db.png)
+
+## 🛠️ Tech Stack
+
+| Layer             | Technologies                  |
+| ----------------- | ----------------------------- |
+| Frontend          | React.js, Axios, React Router |
+| Backend           | Node.js, Express.js           |
+| Database          | MongoDB, Mongoose             |
+| Styling           | CSS3                          |
+| Development Tools | Nodemon, MongoDB Compass      |
+
+---
+
+## ⚡ Installation & Setup
 
 ### Prerequisites
-- Node.js v18+ installed → https://nodejs.org
-- MongoDB running locally → https://www.mongodb.com/try/download/community
-  - After installing, start MongoDB:
-    - **Mac/Linux:** `mongod` or `brew services start mongodb-community`
-    - **Windows:** MongoDB runs as a service after install
+
+* Node.js (v18 or above)
+* MongoDB Community Server
+* MongoDB Compass (optional)
 
 ---
 
-### Step 1 — Clone / Download
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/library-ms.git
-cd library-ms
+git clone https://github.com/Shriyashetty0510/library-management-system.git
+cd library-management-system
+```
+
+### 2️⃣ Start MongoDB
+
+Ensure MongoDB is running locally on:
+
+```text
+mongodb://localhost:27017
 ```
 
 ---
 
-### Step 2 — Setup & Run the Backend
+### 3️⃣ Run Backend
 
 ```bash
 cd backend
@@ -69,30 +166,31 @@ npm install
 npm run dev
 ```
 
-You should see:
-```
-✅ MongoDB connected: localhost
+Expected Output:
+
+```text
+✅ MongoDB connected
 🚀 Server running on http://localhost:5000
 ```
 
 ---
 
-### Step 3 — Seed the Database (optional but recommended)
-
-Open a new terminal tab:
+### 4️⃣ Seed Sample Data
 
 ```bash
 cd backend
 node seed/seed.js
 ```
 
-This adds 10 books, 5 members, and 3 sample transactions so you have data to see right away.
+This loads:
+
+* Sample Books
+* Sample Members
+* Sample Transactions
 
 ---
 
-### Step 4 — Setup & Run the Frontend
-
-Open another terminal tab:
+### 5️⃣ Run Frontend
 
 ```bash
 cd frontend
@@ -100,55 +198,79 @@ npm install
 npm start
 ```
 
-The React app opens at **http://localhost:3000**
+Application runs at:
 
----
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/books` | Get all books (supports ?search= and ?genre=) |
-| POST | `/api/books` | Add a new book |
-| PUT | `/api/books/:id` | Edit a book |
-| DELETE | `/api/books/:id` | Delete a book |
-| GET | `/api/members` | Get all members |
-| POST | `/api/members` | Register a member |
-| PUT | `/api/members/:id` | Update member |
-| DELETE | `/api/members/:id` | Delete member |
-| GET | `/api/transactions` | Get all transactions |
-| POST | `/api/transactions/issue` | Issue a book |
-| PUT | `/api/transactions/return/:id` | Return a book |
-| GET | `/api/transactions/stats/summary` | Dashboard stats |
-
----
-
-## Pushing to GitHub
-
-```bash
-# From the root library-ms folder
-git init
-git add .
-git commit -m "feat: full-stack library management system"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/library-ms.git
-git push -u origin main
+```text
+http://localhost:3000
 ```
 
 ---
 
-## Tech Stack
+## 🔌 REST API Endpoints
 
-| Layer | Tech |
-|-------|------|
-| Frontend | React 18, React Router, Axios |
-| Styling | Pure CSS with CSS variables (no framework) |
-| Backend | Node.js, Express.js |
-| Database | MongoDB with Mongoose ODM |
-| Dev tools | Nodemon, React Scripts |
+### Books
+
+| Method | Endpoint       |
+| ------ | -------------- |
+| GET    | /api/books     |
+| POST   | /api/books     |
+| PUT    | /api/books/:id |
+| DELETE | /api/books/:id |
+
+### Members
+
+| Method | Endpoint         |
+| ------ | ---------------- |
+| GET    | /api/members     |
+| POST   | /api/members     |
+| PUT    | /api/members/:id |
+| DELETE | /api/members/:id |
+
+### Transactions
+
+| Method | Endpoint                        |
+| ------ | ------------------------------- |
+| GET    | /api/transactions               |
+| POST   | /api/transactions/issue         |
+| PUT    | /api/transactions/return/:id    |
+| GET    | /api/transactions/stats/summary |
 
 ---
 
-## Author
+## 🎯 Key Learning Outcomes
 
-Built by [Your Name] — feel free to fork and extend!
+* Full-Stack MERN Development
+* REST API Design
+* MongoDB Database Modeling
+* CRUD Operations
+* State Management
+* Client-Server Architecture
+* Inventory Management Logic
+* Transaction Lifecycle Management
+* Dashboard Analytics
+
+---
+
+## 👩‍💻 Author
+
+**Shriya Shetty**
+
+Computer Science Engineering Student
+
+GitHub: https://github.com/Shriyashetty0510
+
+---
+
+## ⭐ Future Enhancements
+
+* JWT Authentication
+* Role-Based Access Control
+* Email Notifications
+* Barcode Scanning
+* Book Reservation System
+* PDF Report Generation
+* Cloud Deployment (Render/Vercel)
+
+---
+
+
